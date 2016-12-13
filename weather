@@ -1,4 +1,4 @@
-import pyowm
+import pyowm    # module for parsing weather web site
 
 while True:
     city = str(input('Укажите город: '))
