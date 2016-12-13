@@ -1,0 +1,56 @@
+import pyowm
+
+while True:
+    city = str(input('Укажите город: '))
+    city = city.title()
+    owm = pyowm.OWM('5f28df836a35fc458e6270eb8f01ec86')
+    observation = owm.weather_at_place(city)
+    w = observation.get_weather()
+    temperature = w.get_temperature('celsius')['temp']
+    # print(w.get_status())
+    if w.get_status() == 'Clear':
+        c = w.get_status()
+        c = 'безоблачно'
+        print('В городе ' + city + ' сейчас: ' + str(temperature) + ' градусов по Цельсию')
+        print('В ' + city + ' ' + c)
+        continue
+
+    if w.get_status() == 'Mist':
+        c = w.get_status()
+        c = 'лёгкий туман'
+        print('В городе ' + city + ' сейчас: ' + str(temperature) + ' градусов по Цельсию')
+        print('В ' + city + ' ' + c)
+        continue
+
+    if w.get_status() == 'Clouds':
+        c = w.get_status()
+        c = 'облачно'
+        print('В городе ' + city + ' сейчас: ' + str(temperature) + ' градусов по Цельсию')
+        print('В ' + city + ' ' + c)
+        continue
+
+    if w.get_status() == 'Snow':
+        c = w.get_status()
+        c = 'снег'
+        print('В городе ' + city + ' сейчас: ' + str(temperature) + ' градусов по Цельсию')
+        print('В ' + city + ' ' + c)
+        continue
+
+    if w.get_status() == 'Drizzle':
+        c = w.get_status()
+        c = 'изморось'
+        print('В городе ' + city + ' сейчас: ' + str(temperature) + ' градусов по Цельсию')
+        print('В ' + city + ' ' + c)
+        continue
+
+    if w.get_status() == 'Fog':
+        c = w.get_status()
+        c = 'густой туман'
+        print('В городе ' + city + ' сейчас: ' + str(temperature) + ' градусов по Цельсию')
+        print('В ' + city + ' ' + c)
+        continue
+
+    else:
+        print('В городе ' + city + ' сейчас: ' + str(temperature) + ' градусов по Цельсию')
+        print('В ' + city + ' ' + w.get_status())
+        continue
